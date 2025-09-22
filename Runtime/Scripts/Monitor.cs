@@ -126,13 +126,12 @@ namespace Baracuda.Monitoring
             }
         }
 
-#if !DISABLE_MONITORING
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-#endif
         private static async void Initialize()
         {
             Construct();
 
+#if !DISABLE_MONITORING
             if (Settings == null)
             {
                 Debug.Log(SettingsNotFoundMessage);
@@ -144,6 +143,7 @@ namespace Baracuda.Monitoring
                 var profiler = new MonitoringProfiler();
                 Initialized = await profiler.ProfileAsync();
             }
+#endif
         }
 
         private static void OnApplicationQuit()
