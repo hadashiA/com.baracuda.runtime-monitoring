@@ -734,6 +734,7 @@ namespace Baracuda.Monitoring.Editor
             stringBuilder.AppendLine("    [UnityEngine.Scripting.Preserve]");
             stringBuilder.AppendLine("    public static class GeneratedMonitoringProfilerTarget");
             stringBuilder.AppendLine("    {");
+            stringBuilder.AppendLine("        [UnityEngine.Scripting.Preserve]");
             stringBuilder.AppendLine("        public static readonly System.Type[] Types =");
             stringBuilder.AppendLine("        {");
             foreach (var targetType in targetTypes)
