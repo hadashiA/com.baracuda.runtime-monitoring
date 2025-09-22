@@ -731,10 +731,10 @@ namespace Baracuda.Monitoring.Editor
         {
             stringBuilder.AppendLine("namespace Baracuda.Monitoring");
             stringBuilder.AppendLine("{");
-            stringBuilder.AppendLine("    [UnityEngine.Scripting.Preserve]");
+            stringBuilder.AppendLine($"    {preserveAttribute}");
             stringBuilder.AppendLine("    public static class GeneratedMonitoringProfilerTarget");
             stringBuilder.AppendLine("    {");
-            stringBuilder.AppendLine("        [UnityEngine.Scripting.Preserve]");
+            stringBuilder.AppendLine($"        {preserveAttribute}");
             stringBuilder.AppendLine("        public static readonly System.Type[] Types =");
             stringBuilder.AppendLine("        {");
             foreach (var targetType in targetTypes)
@@ -742,7 +742,7 @@ namespace Baracuda.Monitoring.Editor
                 if (targetType.Namespace != null &&
                     targetType.Namespace.StartsWith("Baracuda.Monitoring")) continue;
 
-                stringBuilder.AppendLine($"        typeof(global::{targetType.FullName}),");
+                stringBuilder.AppendLine($"            typeof(global::{targetType.FullName}),");
             }
             stringBuilder.AppendLine("        };");
             stringBuilder.AppendLine("    }");
