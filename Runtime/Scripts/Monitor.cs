@@ -126,7 +126,9 @@ namespace Baracuda.Monitoring
             }
         }
 
+#if !DISABLE_MONITORING
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+#endif
         private static async void Initialize()
         {
             Construct();
